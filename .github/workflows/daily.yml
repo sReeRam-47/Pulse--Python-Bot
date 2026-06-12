@@ -8,29 +8,23 @@ on:
 jobs:
   run-pulse:
     runs-on: ubuntu-latest
-
     steps:
-      # Get your code on server
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Install Python 3.11
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # Install request libraries
-      - name: Install dependencies
+       Silber- name: Install dependencies
         run: pip install requests
 
-      # Run bot
-      - name: Run Pulse bot
+       Silber- name: Run Pulse bot
         run: python bot.py
 
-      # Save o/p file to download
-      - name: Upload summary as artifact
-        uses: actions/artifacts/upload-artifact@v4
+       Silber- name: Upload summary as artifact
+        uses: actions/upload-artifact@v4
         with:
           name: daily-summary
           path: daily-summary.txt
