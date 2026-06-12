@@ -1,4 +1,4 @@
-name: Pulse - Daily summary bot
+name: Pulse - Daily Summary Bot
 
 on:
   schedule:
@@ -15,10 +15,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install requests
+        run: pip install -r requirements.txt
 
       - name: Run Pulse bot
         run: python bot.py
@@ -27,4 +27,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: daily-summary
-          path: daily-summary.txt
+          path: daily_summary.txt
