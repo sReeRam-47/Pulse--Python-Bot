@@ -1,34 +1,36 @@
 name: Pulse - Daily summary bot
 
 on:
-   
   schedule:
     - cron: '30 2 * * *'
-
   workflow_dispatch:
 
 jobs:
   run-pulse:
-    runs-on:ubuntu-latest
+    runs-on: ubuntu-latest
 
     steps:
-#get ur code on server
-      - name:Checkout code
-        uses:actions/checkout@v4
-#install python 3.11
+      # Get your code on server
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Install Python 3.11
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version:"3.11"
-#install request libraries 
-      - name: Install dependencies 
-        run: pip install -r requirements.txt
-#Run bot
+          python-version: "3.11"
+
+      # Install request libraries
+      - name: Install dependencies
+        run: pip install requests
+
+      # Run bot
       - name: Run Pulse bot
         run: python bot.py
-#save o/p file to download 
+
+      # Save o/p file to download
       - name: Upload summary as artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/artifacts/upload-artifact@v4
         with:
           name: daily-summary
           path: daily-summary.txt
