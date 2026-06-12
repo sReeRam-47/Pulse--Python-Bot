@@ -17,13 +17,13 @@ jobs:
         with:
           python-version: "3.11"
 
-       Silber- name: Install dependencies
+      - name: Install dependencies
         run: pip install requests
 
-       Silber- name: Run Pulse bot
+      - name: Run Pulse bot
         run: python bot.py
 
-       Silber- name: Upload summary as artifact
+      - name: Upload summary as artifact
         uses: actions/upload-artifact@v4
         with:
           name: daily-summary
