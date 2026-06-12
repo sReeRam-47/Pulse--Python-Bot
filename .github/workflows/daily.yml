@@ -1,4 +1,4 @@
-name: Pulse - Daily Summary Bot
+name: Pulse - Daily summary bot
 
 on:
   schedule:
@@ -8,6 +8,7 @@ on:
 jobs:
   run-pulse:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -15,7 +16,7 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: pip install -r requirements.txt
