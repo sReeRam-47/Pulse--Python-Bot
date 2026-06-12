@@ -30,23 +30,26 @@ def get_quote():
 def build_summary():
     """Assemble the full daily summary from all data sources."""
     today = date.today().strftime("%A, %d %B %Y")
-    weather=get_weather()
+    
+    weather = get_weather()
     quote = get_quote()
     
-    summary= f"""
-=========================
-Pulse - Daily Summary 
+    # Keep the text left-aligned inside the block if you don't want leading spaces in the output file
+    summary = f"""==============================
+Pulse - Daily Summary
 {today}
-=========================
+==============================
 
-WEATHER 
-  {weather}
- TODAY'S QUOTE 
-  {quote}
+WEATHER
+{weather}
 
-=========================
-"""
-   return summary 
+TODAY'S QUOTE
+{quote}
+
+==============================\n"""
+
+    return summary
+ 
 
 #Run everything 
 def run():
