@@ -24,6 +24,7 @@ def get_quote():
 
 def build_summary():
     today = date.today().strftime("%A, %d %B %Y")
+
     weather = get_weather()
     quote = get_quote()
     
