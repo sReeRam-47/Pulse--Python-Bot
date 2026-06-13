@@ -1,8 +1,8 @@
 import requests
 from datetime import date
 
-def get_weather(city="Thiruvananthapuram"):
-    url = f"https://wttr.in/{city}?format=3"
+def get_weather(city="Thrissur"):
+    url = f"https://wttr.in/{city}?format=3&m"
     try:
         response = requests.get(url, timeout=10)
         response.raise_for_status()
